@@ -1,0 +1,8 @@
+﻿__pycache__/
+*.pyc
+.venv/
+*.log
+.test-*/
+profiles.json
+PowerDesk_*.csv
+PowerDesk_*.zip

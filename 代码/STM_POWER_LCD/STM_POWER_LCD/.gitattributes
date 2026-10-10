@@ -1,0 +1,6 @@
+# Release checksums refer to exact bytes, including text file line endings.
+Release/** -text
+Bench/** -text
+
+# Public release preserves exact bytes and SHA256, including source line endings.
+* -text

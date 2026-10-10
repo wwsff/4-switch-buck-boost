@@ -1,0 +1,2 @@
+# Preserve exact firmware, archive, EPRO, source and checksum bytes.
+* -text

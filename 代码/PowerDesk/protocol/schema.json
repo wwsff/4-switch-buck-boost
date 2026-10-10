@@ -1,0 +1,502 @@
+{
+  "name": "PowerDesk STM32 Serial Protocol",
+  "version": 2,
+  "baud": 115200,
+  "max_payload": 512,
+  "kinds": {
+    "REQUEST": 1,
+    "ACK": 2,
+    "NACK": 3,
+    "EVENT": 4
+  },
+  "commands": {
+    "INFO": 1,
+    "CAPS": 2,
+    "STATUS": 3,
+    "HEARTBEAT": 4,
+    "STOP_ALL": 5,
+    "SET_TARGET": 16,
+    "SET_MODE": 17,
+    "OUTPUT": 18,
+    "CLEAR_FAULT": 19,
+    "GET_PID": 32,
+    "SET_PID": 33,
+    "DEBUG_REF": 34,
+    "TRACE_ARM": 48,
+    "TRACE_INFO": 49,
+    "TRACE_READ": 50,
+    "TELEMETRY": 128,
+    "LOG": 129,
+    "ZERO": 35,
+    "GATE_TEST": 36
+  },
+  "errors": {
+    "BAD_LENGTH": 1,
+    "BAD_CHANNEL": 2,
+    "UNSUPPORTED": 3,
+    "RANGE": 4,
+    "NOT_OFF": 5,
+    "NOT_READY": 6,
+    "FAULT": 7,
+    "BUSY": 8,
+    "NOT_FOUND": 9,
+    "PROTOCOL": 10
+  },
+  "features": {
+    "NORMAL": 1,
+    "IL_DEBUG": 2,
+    "PID": 4,
+    "TRACE": 8,
+    "TARGET_STAGING": 16,
+    "NOMINAL_CALIBRATION": 32,
+    "ZERO_CALIBRATION": 64
+  },
+  "faults": {
+    "OVERCURRENT": 1,
+    "SENSOR_ALERT": 2,
+    "OVERVOLTAGE": 4,
+    "OVERTEMPERATURE": 8,
+    "COMM_TIMEOUT": 16,
+    "ADC": 32,
+    "INPUT": 64,
+    "INTERNAL": 128
+  },
+  "valid_bits": {
+    "VIN": 1,
+    "IIN": 2,
+    "VOUT": 4,
+    "IOUT": 8,
+    "IL": 16,
+    "TMOS": 32,
+    "TL": 64
+  },
+  "modes": {
+    "NORMAL": 0,
+    "IL_DEBUG": 1
+  },
+  "loops": {
+    "IL": 0,
+    "CV": 1,
+    "CC": 2
+  },
+  "trace_states": {
+    "EMPTY": 0,
+    "CAPTURING": 1,
+    "COMPLETE": 2,
+    "FAILED": 3
+  },
+  "states": {
+    "BOOT": 0,
+    "SELF_TEST": 1,
+    "OFF": 2,
+    "BOOTSTRAP_PRECHARGE": 3,
+    "SOFT_START": 4,
+    "RUN_CV": 5,
+    "RUN_CC": 6,
+    "STOPPING": 7,
+    "FAULT_LATCHED": 8,
+    "RUN_IL_DEBUG": 9
+  },
+  "layouts": {
+    "info": [
+      [
+        "schema_crc",
+        "I"
+      ],
+      [
+        "firmware",
+        "32s"
+      ],
+      [
+        "device_id",
+        "24s"
+      ],
+      [
+        "watchdog_ms",
+        "H"
+      ]
+    ],
+    "caps": [
+      [
+        "features",
+        "I"
+      ],
+      [
+        "vmin_mv",
+        "i"
+      ],
+      [
+        "vmax_mv",
+        "i"
+      ],
+      [
+        "imax_ma",
+        "i"
+      ],
+      [
+        "ilmax_ma",
+        "i"
+      ],
+      [
+        "current_hz",
+        "I"
+      ],
+      [
+        "voltage_hz",
+        "I"
+      ],
+      [
+        "cc_hz",
+        "I"
+      ],
+      [
+        "max_debug_ms",
+        "I"
+      ],
+      [
+        "trace_max_points",
+        "H"
+      ],
+      [
+        "trace_base_hz",
+        "I"
+      ]
+    ],
+    "telemetry": [
+      [
+        "uptime_ms",
+        "I"
+      ],
+      [
+        "state",
+        "B"
+      ],
+      [
+        "mode",
+        "B"
+      ],
+      [
+        "enabled",
+        "B"
+      ],
+      [
+        "ready",
+        "B"
+      ],
+      [
+        "fault",
+        "I"
+      ],
+      [
+        "valid",
+        "H"
+      ],
+      [
+        "vin_mv",
+        "i"
+      ],
+      [
+        "iin_ma",
+        "i"
+      ],
+      [
+        "vout_mv",
+        "i"
+      ],
+      [
+        "iout_ma",
+        "i"
+      ],
+      [
+        "il_ma",
+        "i"
+      ],
+      [
+        "vref_mv",
+        "i"
+      ],
+      [
+        "iref_ma",
+        "i"
+      ],
+      [
+        "ilref_ma",
+        "i"
+      ],
+      [
+        "tmos_cdeg",
+        "h"
+      ],
+      [
+        "tl_cdeg",
+        "h"
+      ],
+      [
+        "duty_in",
+        "H"
+      ],
+      [
+        "duty_out",
+        "H"
+      ]
+    ],
+    "target": [
+      [
+        "vref_mv",
+        "i"
+      ],
+      [
+        "iref_ma",
+        "i"
+      ]
+    ],
+    "mode": [
+      [
+        "mode",
+        "B"
+      ]
+    ],
+    "output": [
+      [
+        "enabled",
+        "B"
+      ]
+    ],
+    "loop": [
+      [
+        "loop",
+        "B"
+      ]
+    ],
+    "pid": [
+      [
+        "loop",
+        "B"
+      ],
+      [
+        "kp",
+        "f"
+      ],
+      [
+        "ki",
+        "f"
+      ],
+      [
+        "kd",
+        "f"
+      ],
+      [
+        "tau",
+        "f"
+      ],
+      [
+        "out_min",
+        "f"
+      ],
+      [
+        "out_max",
+        "f"
+      ]
+    ],
+    "debug_ref": [
+      [
+        "ilref_ma",
+        "i"
+      ],
+      [
+        "duration_ms",
+        "I"
+      ]
+    ],
+    "trace_arm": [
+      [
+        "points",
+        "H"
+      ],
+      [
+        "decimation",
+        "H"
+      ]
+    ],
+    "trace_info": [
+      [
+        "capture_id",
+        "I"
+      ],
+      [
+        "state",
+        "B"
+      ],
+      [
+        "points",
+        "H"
+      ],
+      [
+        "sample_hz",
+        "I"
+      ]
+    ],
+    "trace_read": [
+      [
+        "capture_id",
+        "I"
+      ],
+      [
+        "offset",
+        "H"
+      ],
+      [
+        "count",
+        "H"
+      ]
+    ],
+    "trace_chunk": [
+      [
+        "capture_id",
+        "I"
+      ],
+      [
+        "offset",
+        "H"
+      ],
+      [
+        "count",
+        "H"
+      ]
+    ],
+    "trace_point": [
+      [
+        "il_ma",
+        "i"
+      ],
+      [
+        "ilref_ma",
+        "i"
+      ],
+      [
+        "vout_mv",
+        "i"
+      ],
+      [
+        "vref_mv",
+        "i"
+      ],
+      [
+        "duty_in",
+        "H"
+      ],
+      [
+        "duty_out",
+        "H"
+      ]
+    ],
+    "error": [
+      [
+        "code",
+        "H"
+      ]
+    ],
+    "log": [
+      [
+        "uptime_ms",
+        "I"
+      ],
+      [
+        "level",
+        "B"
+      ],
+      [
+        "code",
+        "H"
+      ],
+      [
+        "message",
+        "96s"
+      ]
+    ],
+    "zero_request": [
+      [
+        "action",
+        "B"
+      ]
+    ],
+    "zero_status": [
+      [
+        "state",
+        "B"
+      ],
+      [
+        "sensor",
+        "B"
+      ],
+      [
+        "applied",
+        "B"
+      ],
+      [
+        "reason",
+        "B"
+      ],
+      [
+        "samples",
+        "H"
+      ],
+      [
+        "reserved",
+        "H"
+      ],
+      [
+        "iout_uv",
+        "I"
+      ],
+      [
+        "il_uv",
+        "I"
+      ],
+      [
+        "pp_uv",
+        "I"
+      ],
+      [
+        "span_uv",
+        "I"
+      ]
+    ],
+    "gate_test_request": [
+      [
+        "action",
+        "B"
+      ],
+      [
+        "index",
+        "B"
+      ],
+      [
+        "duration_ms",
+        "H"
+      ]
+    ],
+    "gate_test_status": [
+      [
+        "confirmed",
+        "B"
+      ],
+      [
+        "mapping",
+        "B"
+      ],
+      [
+        "active_index",
+        "B"
+      ],
+      [
+        "running",
+        "B"
+      ],
+      [
+        "remaining_ms",
+        "H"
+      ]
+    ]
+  }
+}

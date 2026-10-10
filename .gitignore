@@ -1,0 +1,11 @@
+# Local and generated files only; packaged Bench artifacts remain tracked.
+**/__pycache__/
+**/.pytest_cache/
+**/profiles.json
+**/server.log
+**/server-error.log
+**/tests/build/
+**/HostTest/build/
+**/MDK-ARM/ReviewBuild/
+*.uvguix.*
+*.uvoptx

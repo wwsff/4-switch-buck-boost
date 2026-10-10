@@ -1,0 +1,115 @@
+=== NTC ===
+NTC conversion/filter: 26 checks, 0 failures
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== G4_CODEC ===
+pd_can codec checks
+68 checks, 0 failures
+CAN wire format: OK (offsets match can_protocol.h on the HMI side)
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== G4_ZERO ===
+G474 startup zero / fixed mapping: 47 checks, 0 failures (host, not hardware)
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== G4_CAN ===
+CAN command path integration (host)
+26 checks, 0 failures
+CAN command path: OK (shares dispatch() with the serial link)
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== H7_PROTOCOL ===
+H750 CAN protocol state machine (host)
+
+boot: no power board yet
+safety: 'output ON' only from reported telemetry
+safety: a fault report turns the display off
+safety: link loss shows offline and does NOT resend START
+the UI takes its range from the capability report
+commands carry a sequence and are retried a bounded number of times
+an ACK for an old sequence must not be applied
+heartbeat runs at the agreed period
+offline START is blocked; high fault bits survive telemetry
+SET must be accepted before a queued START is sent
+startup readiness and active transitions
+
+69 checks, 0 failures
+H750 protocol: the two safety properties hold
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== H7_UI ===
+H750 UI/touch framebuffer and protocol checks (host)
+106 checks, 0 failures
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== AGREEMENT ===
+CAN protocol agreement (canonical vs both projects)
+
+60 checks, 0 failures
+protocol: canonical, HMI and power board all agree
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== G4_IOC ===
+WARNING: PD_RANGE_PROBE=1 - the reachability model does not refuse setpoints and the runtime range servo is bypassed; a target the input cannot reach ends in REGULATION FAILED / PD_FAULTS_INTERNAL instead of a pre-emptive refusal. Bench measurement only.
+WARNING: PD_IL_SENSOR_FITTED=0 - the TMCS1133 is removed, so CH1 has NO hardware overcurrent trip (IL, OC_N/FLT1 and ALERT_N/FLT3 all withdrawn); only the IOUT software limit, OVP, the input window and the supply limit remain. Bench configuration only.
+WARNING: PD_CH2_FITTED=0 - CH2 has no power board, so its fault pins are not polled and no CH2 fault is latched; bench configuration only and must not be released.
+declared range 2000..44000 mV over an input window of 19000..21000 mV: PD_RANGE_PROBE=1, so the declared range is what answers at BOTH ends - the measured line is not consulted and the low-end figure below does not apply
+CubeMX / generated C sampling, triggers, priorities and stacks agree; no application overrides.
+every formatted log line fits the 96-byte field (worst case computed, not counted)
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== H7_IOC ===
+checking STM_POWER_LCD.ioc
+derived from the raw values:
+  SYSCLK    225.000 MHz   (VCO 450 MHz, VCO-in 2.000 MHz)
+  APB1/2    112.500 MHz
+  I2C1 SCL     99.7 kHz   (PRESC=11 SCLH=45 SCLL=45, setup 107 ns, hold 320 ns)
+  SPI1 SCLK   8.000 Mbps  (HSI / 1 -> CKPER -> SPI123 / 8)
+  FDCAN2      500.0 kbit/s (tq 125 ns, 16 tq, sample point 87.5 %)
+  HSE 8MHz checked in IOC, HAL and Keil target (overrides CMSIS template default)
+  generated code cross-checked against the .ioc: 7 files agree
+
+.ioc is consistent with the plan, and the generated code matches it.
+Remember: close CubeMX WITHOUT saving before regenerating, or it will overwrite this file with its stale in-memory copy.
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== H7_PROJECT ===
+Keil project already has every User/ group and include path.
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0
+
+=== H7_INTENT ===
+.ioc matches the frozen intent (328 keys).
+
+Failed to find real location of C:\Users\w\AppData\Local\Python\bin\python.exe
+
+exit=0

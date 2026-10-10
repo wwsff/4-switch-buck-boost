@@ -1,0 +1,9 @@
+MDK-ARM/STM_POWER_LCD/
+MDK-ARM/ReviewBuild/
+MDK-ARM/*.log
+MDK-ARM/*.uvoptx
+MDK-ARM/*.uvguix.*
+MDK-ARM/*.lst
+*.bak
+User/HostTest/build/
+User/HostTest/analyze/

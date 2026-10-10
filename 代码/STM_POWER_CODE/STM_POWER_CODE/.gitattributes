@@ -1,0 +1,12 @@
+* text=auto
+*.c text eol=lf
+*.h text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.axf binary
+Release/* -text
+Release/** -text
+Bench/** -text
+
+# Public release preserves exact bytes and SHA256, including source line endings.
+* -text

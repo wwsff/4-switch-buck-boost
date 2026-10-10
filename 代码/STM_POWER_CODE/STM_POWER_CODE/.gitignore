@@ -1,0 +1,16 @@
+MDK-ARM/STM_POWER_CODE/
+MDK-ARM/ReviewBuild/
+MDK-ARM/DebugConfig/
+MDK-ARM/*.uvguix.*
+MDK-ARM/*.uvoptx
+MDK-ARM/*.bak
+MDK-ARM/*.dep
+*.log
+__pycache__/
+tests/build/
+MDK-ARM/*.lst
+.mxproject
+
+# One-off session scripts and the saved WIP bundle. Kept on disk for reference,
+# never tracked: the bundle alone is 17 MB.
+Release/_worklog/
